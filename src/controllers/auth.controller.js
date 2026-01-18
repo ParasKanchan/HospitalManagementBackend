@@ -3,21 +3,24 @@ import User from "../models/user.model.js";
 import { generateToken } from "../utils/jwt.js";
 
 export const registerUser = async (req, res) => {
-  const { name, email, password, age, gender, phone } = req.body;
+  const { name, email, password, age, gender, phone, role } = req.body;
 
   const existing = await User.findOne({ email });
   if (existing) return res.status(400).json({ message: "User already exists" });
 
-  const salt = await bcrypt.genSalt(10);
+  const salt = await bcrypt.genSalt(12);
   const hashedPassword = await bcrypt.hash(password, salt);
 
+  const displayName = role === "doctor" ? `Dr. ${name}` : name;
+
   const user = await User.create({
-    name,
+    name: displayName,
     email,
     password: hashedPassword,
     age,
     gender,
     phone,
+    role,
   });
 
   res.status(201).json({
@@ -55,4 +58,11 @@ export const loginUser = async (req, res) => {
 
 export const getMe = async (req, res) => {
   res.json({ user: req.user });
+};
+
+export const getDoctors = async (req, res) => {
+  const doctors = await User.find({ role: "doctor" }).select(
+    "name email phone"
+  );
+  res.json({ doctors });
 };
