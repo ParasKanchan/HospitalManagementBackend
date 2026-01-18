@@ -1,10 +1,21 @@
+## 👥 Team Members
+
+| Name | GitHub Profile |
+|-----|---------------|
+| **Anand Goyal** | 🔗 [AnandGoyal264](https://github.com/AnandGoyal264/HealthCare-HCL-) |
+| **Preethi Pattlola** | 🔗 [preethi1210](https://github.com/preethi1210) |
+| **Paras Kanchan** | 🔗 [ParasKanchan](https://github.com/ParasKanchan) |
+
+> 🚀 This project is collaboratively built with a focus on clean architecture, scalability, and real-world healthcare use cases.
+
 usecaseDiagram
-title Healthcare Wellness & Preventive Care Portal
+Healthcare Wellness & Preventive Care Portal
 
 actor Patient
 actor "Healthcare Provider" as Provider
 
-![Uploading WhatsApp Image 2026-01-18 at 5.50.22 PM.jpeg…]()
+![WhatsApp Image 2026-01-18 at 5 50 22 PM](https://github.com/user-attachments/assets/a08ec3e7-2876-4f09-a090-b07cce0b1b1a)
+
 
 "Healthcare Wellness Portal" {
 
